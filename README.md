@@ -34,5 +34,36 @@ Rember to google better shell python and insert in your shell: python3 -c 'impor
 
 ![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/1b600a43-7e46-43fc-acd8-94412accdd5b)
 
+7. What is the file that contains the password that is shared with the robert user? 
+I don't did any recon, i got the RCE and there i foud this, the file that contains the password is db.php
+<?php
+$conn = mysqli_connect('localhost','robert','M3g4C0rpUs3r!','garage');
+?>
 
+8. What executible is run with the option "-group bugtracker" to identify all files owned by the bugtracker group? 
+The answer is: find
+
+9. Regardless of which user starts running the bugtracker executable, what's user privileges will use to run? 
+The answer is: root, you can check this by command ls -la
+
+10. What SUID stands for? 
+This we need to google, because i have no idea what can mean this acronym:
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/ec4ca946-f826-44c3-a21f-2a687ab2dac1)
+
+11. What is the name of the executable being called in an insecure manner? 
+I analyz the Provide Bug ID: and there only 3, but when i insert 4, i can see this: cat: /root/reports/4: No such file or directory, now we know script read the file only, now we need to figure out how we can use this to get access by root.
+
+12. Submit user flag 
+By before this, here's the user.txt ![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/ddf8e1d3-2577-40c8-9fa1-bfc4acd060a4)
+
+13. Submit root flag
+Here's the way how you can exploit it.
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/20ee9bff-d43a-42bb-92cf-e823d0eb0b7a)
+
+And now u have a access as root.
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/20cf4eda-d02b-4088-a4a5-dc36f5848f65)
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/9b0e178d-9c91-4994-a0c0-7a5bd8620dd6)
 
