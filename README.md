@@ -20,3 +20,19 @@ Again i used ffuf to do some recon, to find the directory, after few secend i di
 This will be /uploads
 
 ![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/06067e2c-e923-4675-9630-ee955d15f16c)
+
+6. What is the file that contains the password that is shared with the robert user? 
+We need to step back little bit, the target is upload the reverse-shell, first what i did is turn on the burp and intercept the traffic. Then change the in Cookie=user: 2233 role=guest to, Cookie=user: 34322 role=admin, you will get access as a admin, then cp on your computer the reverse-shell ~by this command: cp /usr/share/webshells/php/php-reverse-shell.php ~
+
+You need to open with nano or vim, and change this paramiter: $ip, on your own ip.
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/0e210008-ffd0-4c87-8d24-74181ad3cdb6)
+
+If u change, let's go upload this RCE :P, but rember to change the Cookie=user:, role= without this u can't upload file on the server. If u did this, you can see the announcement  The file php-reverse-shell.php has been uploaded. 
+No go to the /uploads, before that rember to turn on the netcat -lvnp 1234 to get a RCE. Something was wrong, i tryed to go /uploads be only what i can see is Forbidden, then /uploads/php-reverse-shell.php but still nothing, i tryed again upload this RCE and i got this :P
+Rember to google better shell python and insert in your shell: python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/1b600a43-7e46-43fc-acd8-94412accdd5b)
+
+
+
