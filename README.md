@@ -80,3 +80,27 @@ There no many port's only 3, SSH, HTTP, FTP. But you can see, we can log in as A
 
 2. This service can be configured to allow login with any password for specific username. What is that username? 
 We can see on the scan, the answer is Anonymous
+
+3. What is the name of the file downloaded over this service?
+After when we log in,in to FTP we can see there: backup.zip
+
+4. What script comes with the John The Ripper toolset and generates a hash from a password protected zip archive in a format to allow for cracking attempts? 
+First we need to use zip2john tool: zip2john backup.zip > hash.txt, then u need to use john to crack the hash by command, john -w=/usr/share/wordlist/rockyou.txt hash.txt and u will get the password: 741852963, then you need to unzip backup.zip and insert the password you will get 2 files. index.php, style.css 
+
+5. What is the password for the admin user on the website? 
+We need to read the code in file index.php, there we can see the password for admin.
+But how can see in this code md5($_POST['password']), this is encode in MD5, we need to decode this pasword, i used crackstation and i got the passowrd:
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/fa51c08a-9772-42cf-9d8b-1899faca10be)
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/bb7f8ea2-ef54-4ef6-8834-ba29852738fc)
+
+6.What option can be passed to sqlmap to try to get command execution via the sql injection? 
+We need to check the sqlmap -h, there i found the switch to get command execution
+```
+Operating system access:
+    These options can be used to access the back-end database management
+    system underlying operating system
+
+    --os-shell          Prompt for an interactive operating system shell
+    --os-pwn            Prompt for an OOB shell, Meterpreter or VNC
+```
