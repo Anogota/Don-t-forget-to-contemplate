@@ -67,3 +67,16 @@ And now u have a access as root.
 ![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/20cf4eda-d02b-4088-a4a5-dc36f5848f65)
 ![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/9b0e178d-9c91-4994-a0c0-7a5bd8620dd6)
 
+
+The next lab:
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/0cce350a-6377-44b4-9827-26b64dfa8fad)
+
+1. Besides SSH and HTTP, what other service is hosted on this box?
+I did a scan
+There no many port's only 3, SSH, HTTP, FTP. But you can see, we can log in as Anonymous to FTP.
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/c115a783-7036-4319-b81f-49c523403107)
+
+2. This service can be configured to allow login with any password for specific username. What is that username? 
+We can see on the scan, the answer is Anonymous
